@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="41554" started-at="2017-11-03T21:16:58Z" finished-at="2017-11-03T21:17:40Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="41554" started-at="2017-11-03T21:16:58Z" finished-at="2017-11-03T21:17:40Z">
+      <class name="page.tests.TestHomepage">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="setUp" is-config="true" duration-ms="18271" started-at="2017-11-03T14:16:58Z" finished-at="2017-11-03T14:17:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSearchFunction()[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="testSearchFunction" duration-ms="6674" started-at="2017-11-03T14:17:16Z" finished-at="2017-11-03T14:17:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchFunction -->
+        <test-method status="PASS" signature="result(org.testng.ITestResult)[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="result" is-config="true" duration-ms="2" started-at="2017-11-03T14:17:23Z" finished-at="2017-11-03T14:17:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testSearchFunction status=SUCCESS method=TestHomepage.testSearchFunction()[pri:0, instance:page.tests.TestHomepage@2b98378d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- result -->
+        <test-method status="PASS" signature="testAboutNomisLink()[pri:1, instance:page.tests.TestHomepage@2b98378d]" name="testAboutNomisLink" duration-ms="7234" started-at="2017-11-03T14:17:23Z" finished-at="2017-11-03T14:17:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAboutNomisLink -->
+        <test-method status="PASS" signature="result(org.testng.ITestResult)[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="result" is-config="true" duration-ms="0" started-at="2017-11-03T14:17:30Z" finished-at="2017-11-03T14:17:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAboutNomisLink status=SUCCESS method=TestHomepage.testAboutNomisLink()[pri:1, instance:page.tests.TestHomepage@2b98378d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- result -->
+        <test-method status="PASS" signature="testRequestDemo()[pri:2, instance:page.tests.TestHomepage@2b98378d]" name="testRequestDemo" duration-ms="7591" started-at="2017-11-03T14:17:30Z" finished-at="2017-11-03T14:17:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRequestDemo -->
+        <test-method status="PASS" signature="result(org.testng.ITestResult)[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="result" is-config="true" duration-ms="1" started-at="2017-11-03T14:17:38Z" finished-at="2017-11-03T14:17:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testRequestDemo status=SUCCESS method=TestHomepage.testRequestDemo()[pri:2, instance:page.tests.TestHomepage@2b98378d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- result -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:page.tests.TestHomepage@2b98378d]" name="tearDown" is-config="true" duration-ms="1752" started-at="2017-11-03T14:17:38Z" finished-at="2017-11-03T14:17:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- page.tests.TestHomepage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
