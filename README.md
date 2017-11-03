@@ -8,4 +8,4 @@ Just a few details about my code. I was asked to please build a suite of 2-3 tes
 
 3. Test the 'Request a Demo' link (for users that may want to request a demo). Click the Request a Demo link and verify that the user was navigated to the correct URL and the Request Demo form is properly displayed.
 
-  The Test Report is available, view TestReport.html in your browser. I can extend the tests to cover more but I wanted to show what I had so far. If you need anything else please let me know, and I will attend to it. Thank you for the opportunity.
+  The Test Report is available, view 'TestReport.html' in your browser. I can extend the tests to cover more but I wanted to show what I had so far. If you need anything else or you need me to document the Test Cases manually please let me know, and I will attend to it. Thank you for the opportunity.
