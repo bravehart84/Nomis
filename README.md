@@ -1,6 +1,6 @@
 # Nomis
 
-Just a few details about my code. I was asked to please build a suite of 2-3 test cases for the home page at https://www.nomissolutions.com/. I used the Page Object pattern and wrote my tests in /src/test/java/page/tests/ and my Homepage Factory and utilities package are in /src/main/java/. I wrote 3 test cases,
+Just a few details about my code. I was asked to build a suite of 2-3 test cases for the home page at https://www.nomissolutions.com/. I used the Page Object pattern and wrote my tests in /src/test/java/page/tests/ and my Homepage Factory and utilities package are in /src/main/java/. I wrote 3 test cases,
 
 1. Test the Search functionality with a sample word, click the search button and verify that the user is navigated to the correct search results page URL and that search results are displayed. 
 
