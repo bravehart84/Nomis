@@ -66,6 +66,18 @@ public class HomepageFactory {
 		WaitUtil.getWhenVisible(this.driver, By.cssSelector("img.hs-image-widget"), 6);
 
 	}
+	
+	public int getWebResultSize() {
+
+		int size = this.webResult.size();
+		return size;
+	}
+
+	public String getWebResultText() {
+
+		String text = this.webResult.get(0).getText();
+		return text;
+	}
 
 	public int getWebResultSize() {
 

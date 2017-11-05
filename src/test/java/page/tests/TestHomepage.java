@@ -50,7 +50,7 @@ public class TestHomepage {
 
 		// this.driver = new ChromeDriver();
 		this.driver = new FirefoxDriver();
-		// this.driver = new InternetExplorerDriver();
+		// this.driver = new ChromeDriver();
 
 		// this.driver.manage().window().maximize();
 		// this.driver.manage().window().setSize(new Dimension(1500, 1080));
@@ -123,7 +123,7 @@ public class TestHomepage {
 			String currentUrl = this.driver.getCurrentUrl();
 
 			// Verify that we're on the Request demo page and the Request form
-			// is displayed.
+			// is displayed to the user.
 			Assert.assertEquals(currentUrl,
 					"https://info.nomissolutions.com/get-a-demo?hsCtaTracking=c71349a6-f5ad-4d47-b28a-f495f7462dd2%7Ca9f4f1b1-fd67-4c28-a8e5-8511328769eb");
 			Assert.assertTrue(requestForm.isDisplayed());
@@ -155,6 +155,15 @@ public class TestHomepage {
 
 			Assert.assertEquals(currentUrl, "https://www.nomissolutions.com/search?q=" + searchString);
 			Assert.assertTrue(result.isDisplayed());
+			
+			//Check if search results contain your search string in bold font.
+			if (this.homepage.getWebResultSize() > 0) {
+				String resultText = this.homepage.getWebResultText();
+				Assert.assertTrue(resultText.contains(searchString));
+
+				this.test.log(Status.INFO, "Search results contain " + searchString);
+
+			}
 
 			if (this.homepage.getWebResultSize() > 0) {
 				String resultText = this.homepage.getWebResultText();
