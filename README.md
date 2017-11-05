@@ -8,6 +8,6 @@ Just a few details about my code. I was asked to build a suite of 2-3 test cases
 
 3. Test the 'Request a Demo' link (for users that may want to request a demo). Click the Request a Demo link and verify that the user was navigated to the correct URL and the Request Demo form is properly displayed.
 
- I also discovered that sometimes your homepage does not render properly (especially on Google Chrome), and shows characters like â€ instead of the horizontal scroll buttons. I think the character encoding of the webpage likely wasn't specified. I added a Screenshot of it in the 'ErrorScreenshots' folder.   
+ I also discovered that sometimes your homepage does not render properly (especially on Google Chrome), and shows characters like â€ instead of the horizontal scroll buttons. I think its likely character encoding issues, maybe it was not specified. I added a Screenshot of the issue in the 'ErrorScreenshots' folder.   
 
   The Test Report is available, view 'TestReport.html' in your browser. I can extend the tests to cover more but I wanted to show what I had so far. If you need anything else or if you need me to document the Test Cases manually please let me know, and I will attend to it. Thank you for the opportunity.
