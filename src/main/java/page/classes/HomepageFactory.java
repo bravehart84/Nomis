@@ -1,6 +1,9 @@
 package page.classes;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -34,11 +37,17 @@ public class HomepageFactory {
 	@FindBy(css = "img.hs-image-widget")
 	WebElement homeLink;
 
+	JavascriptExecutor js = ((JavascriptExecutor) this.driver);
+
 	@FindBy(id = "hs_cos_wrapper_module_14273976952109892")
 	WebElement requestDemoForm;
 
 	@FindBy(xpath = ".//div[text()=\"REQUEST A DEMO\"]")
 	WebElement requestDemoLink;
+
+	@FindBy(xpath = ".//*[@class=\"gs-bidi-start-align gs-snippet\"]/b")
+	List<WebElement> webResult;
+	// .//*[@class="gsc-webResult gsc-result"]
 
 	public HomepageFactory(WebDriver driver) {
 		this.driver = driver;
@@ -58,7 +67,21 @@ public class HomepageFactory {
 
 	}
 
+	public int getWebResultSize() {
+
+		int size = this.webResult.size();
+		return size;
+	}
+
+	public String getWebResultText() {
+
+		String text = this.webResult.get(0).getText();
+		return text;
+	}
+
 	public void requestDemo() {
+
+		WaitUtil.getWhenClickable(this.driver, By.xpath(".//div[text()=\"REQUEST A DEMO\"]"), 10);
 
 		this.requestDemoLink.click();
 

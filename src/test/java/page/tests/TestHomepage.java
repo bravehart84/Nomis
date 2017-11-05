@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,6 +32,8 @@ public class TestHomepage {
 
 	HomepageFactory homepage;
 
+	JavascriptExecutor js = ((JavascriptExecutor) this.driver);
+
 	ExtentTest test;
 
 	@AfterMethod
@@ -45,6 +48,7 @@ public class TestHomepage {
 	@BeforeClass
 	public void setUp() {
 
+		// this.driver = new ChromeDriver();
 		this.driver = new FirefoxDriver();
 		// this.driver = new InternetExplorerDriver();
 
@@ -103,7 +107,7 @@ public class TestHomepage {
 	}
 
 	@Test(priority = 2)
-	public void testRequestDemo() {
+	public void testRequestDemo() throws InterruptedException {
 
 		this.test = this.extent.createTest("Nomis Home page Tests", "Testing 'Request Demo' Link");
 
@@ -151,6 +155,16 @@ public class TestHomepage {
 
 			Assert.assertEquals(currentUrl, "https://www.nomissolutions.com/search?q=" + searchString);
 			Assert.assertTrue(result.isDisplayed());
+
+			if (this.homepage.getWebResultSize() > 0) {
+				String resultText = this.homepage.getWebResultText();
+				Assert.assertTrue(resultText.contains(searchString));
+
+				this.test.log(Status.INFO, "Search results contain " + searchString);
+
+			}
+
+			Thread.sleep(10000);
 
 			this.homepage.clickHome();
 
