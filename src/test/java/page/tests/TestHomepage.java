@@ -152,7 +152,7 @@ public class TestHomepage {
 			Assert.assertEquals(currentUrl, "https://www.nomissolutions.com/search?q=" + searchString);
 			Assert.assertTrue(result.isDisplayed());
 			
-			//Check if search results contain your search string.
+			//Check if search results contain your search string in bold font.
 			if (this.homepage.getWebResultSize() > 0) {
 				String resultText = this.homepage.getWebResultText();
 				Assert.assertTrue(resultText.contains(searchString));
