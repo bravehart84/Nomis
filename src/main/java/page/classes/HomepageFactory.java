@@ -3,7 +3,6 @@ package page.classes;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -34,16 +33,20 @@ public class HomepageFactory {
 
 	WebDriver driver;
 
+	@FindBy(xpath = ".//*[@id='fancybox-overlay']")
+	WebElement fancyBoxClose;
+
 	@FindBy(css = "img.hs-image-widget")
 	WebElement homeLink;
-
-	JavascriptExecutor js = ((JavascriptExecutor) this.driver);
 
 	@FindBy(id = "hs_cos_wrapper_module_14273976952109892")
 	WebElement requestDemoForm;
 
 	@FindBy(xpath = ".//div[text()=\"REQUEST A DEMO\"]")
 	WebElement requestDemoLink;
+
+	@FindBy(xpath = ".//*[@id='hs_cos_wrapper_module_1443414471302953']/a/div")
+	WebElement watchVideo;
 
 	@FindBy(xpath = ".//*[@class=\"gs-bidi-start-align gs-snippet\"]/b")
 	List<WebElement> webResult;
@@ -66,7 +69,37 @@ public class HomepageFactory {
 		WaitUtil.getWhenVisible(this.driver, By.cssSelector("img.hs-image-widget"), 6);
 
 	}
-	
+
+	public void closeVideo() {
+
+		this.fancyBoxClose.click();
+
+	}
+
+	public String getVideoSrc() {
+		WebElement video = this.driver.findElement(By.xpath(".//*[@id=\"wistia_simple_video_42\"]"));
+
+		String videoSrc = video.getAttribute("src");
+
+		return videoSrc;
+
+	}
+
+	public Double getVideoTime() throws InterruptedException {
+
+		WebElement time_positioner = this.driver.findElement(By.xpath(".//*[@id=\"time_positioner_107\"]/div"));
+		Thread.sleep(2000);
+		Actions action = new Actions(this.driver);
+		action.moveToElement(time_positioner).build().perform();
+
+		String currentTime = time_positioner.getText().replace(":", ".");
+
+		Double time = Double.parseDouble(currentTime);
+
+		return time;
+
+	}
+
 	public int getWebResultSize() {
 
 		int size = this.webResult.size();
@@ -79,16 +112,10 @@ public class HomepageFactory {
 		return text;
 	}
 
-	public int getWebResultSize() {
+	public void playVideo() throws InterruptedException {
+		this.watchVideo.click();
 
-		int size = this.webResult.size();
-		return size;
-	}
-
-	public String getWebResultText() {
-
-		String text = this.webResult.get(0).getText();
-		return text;
+		Thread.sleep(2000);
 	}
 
 	public void requestDemo() {

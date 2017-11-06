@@ -89,9 +89,12 @@ public class TestHomepage {
 			String currentUrl = this.driver.getCurrentUrl();
 
 			Assert.assertEquals(currentUrl, "https://www.nomissolutions.com/about");
+
+			this.test.log(Status.INFO, "Correct URL is verified");
+
 			Assert.assertTrue(whoWeAre.isDisplayed());
 
-			this.test.log(Status.INFO, "'Who we are' statement is displayed");
+			this.test.log(Status.INFO, "'About Nomis' page is displayed");
 
 			this.homepage.clickHome();
 			this.test.log(Status.INFO, "Returned to Nomis Home page");
@@ -126,6 +129,8 @@ public class TestHomepage {
 			// is displayed to the user.
 			Assert.assertEquals(currentUrl,
 					"https://info.nomissolutions.com/get-a-demo?hsCtaTracking=c71349a6-f5ad-4d47-b28a-f495f7462dd2%7Ca9f4f1b1-fd67-4c28-a8e5-8511328769eb");
+			this.test.log(Status.INFO, "Correct URL is verified");
+
 			Assert.assertTrue(requestForm.isDisplayed());
 
 			this.test.log(Status.INFO, "Request form is displayed");
@@ -155,8 +160,8 @@ public class TestHomepage {
 
 			Assert.assertEquals(currentUrl, "https://www.nomissolutions.com/search?q=" + searchString);
 			Assert.assertTrue(result.isDisplayed());
-			
-			//Check if search results contain your search string in bold font.
+
+			// Check if search results contain your search string in bold font.
 			if (this.homepage.getWebResultSize() > 0) {
 				String resultText = this.homepage.getWebResultText();
 				Assert.assertTrue(resultText.contains(searchString));
@@ -165,15 +170,7 @@ public class TestHomepage {
 
 			}
 
-			if (this.homepage.getWebResultSize() > 0) {
-				String resultText = this.homepage.getWebResultText();
-				Assert.assertTrue(resultText.contains(searchString));
-
-				this.test.log(Status.INFO, "Search results contain " + searchString);
-
-			}
-
-			Thread.sleep(10000);
+			Thread.sleep(4000);
 
 			this.homepage.clickHome();
 
@@ -182,6 +179,51 @@ public class TestHomepage {
 			this.test.log(Status.PASS, "Verified correct URL and Search Results");
 		} catch (Exception e) {
 			this.test.log(Status.FAIL, "Could not verify correct Search Results");
+		}
+
+	}
+
+	@Test(priority = 3)
+	public void testVideo() {
+
+		this.test = this.extent.createTest("Nomis Home page Tests", "Testing Watch Video playback");
+		try {
+
+			this.homepage.playVideo();
+
+			this.test.log(Status.INFO, "Clicked on 'Watch Video' link");
+
+			WebElement iframe = WaitUtil.getWhenVisible(this.driver,
+					By.cssSelector("iframe.fancybox-iframe.wistia_embed"), 6);
+
+			this.driver.switchTo().frame(iframe);
+
+			this.test.log(Status.INFO, "Switched to fancybox frame");
+
+			String videoSource = this.homepage.getVideoSrc();
+
+			Assert.assertTrue(videoSource.equalsIgnoreCase(
+					"https://embedwistia-a.akamaihd.net/deliveries/875cbbe82950c5e2838d0d8c7a3ea66587dc23f8/file.mp4"));
+
+			this.test.log(Status.INFO, "Source URL of the video is confirmed");
+
+			Double time = this.homepage.getVideoTime();
+
+			Assert.assertTrue(time > 0.00);
+
+			this.test.log(Status.INFO, "Video time is currently " + time.toString());
+
+			this.test.log(Status.INFO, "Closed video");
+
+			this.driver.switchTo().defaultContent();
+
+			this.test.log(Status.PASS, "Verified that the video is playing");
+		}
+
+		catch (Exception e) {
+
+			this.test.log(Status.FAIL, "Could not verify video playback");
+
 		}
 
 	}
