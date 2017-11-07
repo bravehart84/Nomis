@@ -32,7 +32,7 @@ public class TestHomepage {
 
 	HomepageFactory homepage;
 
-	JavascriptExecutor js = ((JavascriptExecutor) this.driver);
+	//JavascriptExecutor js = ((JavascriptExecutor) this.driver);
 
 	ExtentTest test;
 
@@ -48,9 +48,10 @@ public class TestHomepage {
 	@BeforeClass
 	public void setUp() {
 
-		// this.driver = new ChromeDriver();
+		
 		this.driver = new FirefoxDriver();
 		// this.driver = new ChromeDriver();
+		//this.driver= new InternetExplorerDriver();
 
 		// this.driver.manage().window().maximize();
 		// this.driver.manage().window().setSize(new Dimension(1500, 1080));
@@ -121,7 +122,8 @@ public class TestHomepage {
 		try {
 
 			WebElement requestForm = WaitUtil.getWhenVisible(this.driver,
-					By.id("hs_cos_wrapper_module_14273976952109892"), 6);
+					By.xpath(".//*[@id=\"hs_cos_wrapper_module_14273976952109892\"]//form"), 6);
+
 
 			String currentUrl = this.driver.getCurrentUrl();
 
