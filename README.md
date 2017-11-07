@@ -10,6 +10,8 @@ Just a few details about my code. I was asked to build a suite of 2-3 test cases
 
 4. Test the embedded video on the homepage. Click on the watch video link and verify that the video starts to play on time.
 
+Run it as TestNG test and it will bring up the browser and execute the tests.
+
  I also discovered that sometimes your homepage does not render properly (especially on Google Chrome), and shows characters like â€ instead of the horizontal scroll buttons. I think its likely character encoding issues, maybe it was not specified. I added a Screenshot of the issue in the 'ErrorScreenshots' folder.   
 
   The Test Report is available, view 'TestReport.html' in your browser. I can extend the tests to cover more but I wanted to show what I had so far. If you need anything else or if you need me to document the Test Cases manually please let me know, and I will attend to it. Thank you for the opportunity.
